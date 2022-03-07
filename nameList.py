@@ -23,7 +23,7 @@ class NameList:
             lastNames.append(name[:-1].lower())
 
         # Produces 100 names by combining a random first name with a random surname
-        while len(self.listOfNames) < 100:
+        while len(self.listOfNames) < 101:
             randFirstName = firstNames[random.randrange(len(firstNames))]
             randLastName = lastNames[random.randrange(len(lastNames))]
             name = randFirstName.capitalize() + " " + randLastName.capitalize()
