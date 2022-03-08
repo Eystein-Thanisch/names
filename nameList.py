@@ -4,9 +4,15 @@ import random
 class NameList:
 
     # Will store full names by alphanumeric code
-    listOfNames: dict[int, list[str]] = {}
+    listOfNames: "dict[int, list[str]]" = {}
 
     def __init__(self):
+
+        self.listOfNames = {}
+
+    def set_sample(self):
+
+        self.listOfNames = {}    
 
         # Gets list of first names from file
         firstNames: list[str] = list()

@@ -5,6 +5,7 @@ from nameList import *
 def main():
 
     thisList = NameList()
+    thisList.set_sample()
     thisList.printReport()
 
 if __name__ == '__main__':
