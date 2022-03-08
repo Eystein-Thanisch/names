@@ -5,33 +5,33 @@ class NameList:
 
     # Will store full names by alphanumeric code
     listOfNames: "dict[int, list[str]]" = {}
+    firstNames: "list[str]"
+    lastNames: "list[str]"
 
     def __init__(self):
 
         self.listOfNames = {}
-
-    def set_sample(self):
-
-        self.listOfNames = {}    
-
+        self.firstNames = []
+        self.lastNames = []
+        
         # Gets list of first names from file
-        firstNames: list[str] = list()
         with open("first-names.txt") as f:
             lines = f.readlines()
         for name in lines:
-            firstNames.append(name[:-1].lower())
+            self.firstNames.append(name[:-1].lower())
 
         # Gets list of surnames from file
-        lastNames: list[str] = list()
         with open("last-names.txt") as f:
             lines = f.readlines()
         for name in lines:
-            lastNames.append(name[:-1].lower())
+            self.lastNames.append(name[:-1].lower())
+
+    def set_sample(self):
 
         # Produces 100 names by combining a random first name with a random surname
         while len(self.listOfNames) < 101:
-            randFirstName = firstNames[random.randrange(len(firstNames))]
-            randLastName = lastNames[random.randrange(len(lastNames))]
+            randFirstName = self.firstNames[random.randrange(len(self.firstNames))]
+            randLastName = self.lastNames[random.randrange(len(self.lastNames))]
             name = randFirstName.capitalize() + " " + randLastName.capitalize()
 
             # Gets alphanumeric code for the generated name
